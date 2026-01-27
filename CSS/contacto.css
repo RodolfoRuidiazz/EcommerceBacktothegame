@@ -1,0 +1,221 @@
+/*
+ * Estilos para la página de Contacto
+ * Aplicando el diseño de dos columnas.
+ */
+
+/* Contenedor principal para centrar y aplicar Flexbox */
+.contenedor-principal {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 20px;
+    display: flex;
+    gap: 80px;
+    font-family: 'Montserrat', sans-serif;
+    color: white;
+}
+
+/*Imagen de fondo*/
+.contacto-header {
+    width: 100%;
+    height: 250px;
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.55),
+            rgba(0, 0, 0, 0.30)),
+        url("/img/spider-man-el-hombre-arana-marvels_5120x2880_xtrafondos.com.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Alinea el contenido arriba */
+
+}
+
+
+
+/* Título principal de la página */
+.contacto-titulo {
+    text-align: center;
+    font-size: 3em;
+    margin-top: 50px;
+    margin-bottom: 40px;
+    font-family: 'Bebas Neue', cursive;
+    color: #4CAF50;
+}
+
+/* Subtítulos (Póngase en contacto y Soporte) */
+.subtitulo {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+
+.seccion-formulario {
+    flex: 1;
+    padding-right: 40px;
+}
+
+.campo label {
+    display: block;
+    font-size: 0.7em;
+    font-weight: 600;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    color: #999;
+}
+
+.campo input,
+.campo textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 25px;
+    border: 1px solid white;
+    border-radius: 0;
+    box-sizing: border-box;
+    background-color: transparent;
+    color: white;
+}
+
+.boton-enviar {
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    padding: 10px 20px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 600;
+    width: 100%;
+}
+
+.boton-enviar:hover {
+    background-color: #999;
+    border-color: #8c8c8c;
+    transform: scale(1.03);
+}
+
+.seccion-soporte {
+    flex-basis: 300px;
+}
+
+.datos-soporte {
+    margin-top: 30px;
+}
+
+.dato-item {
+    margin-bottom: 30px;
+}
+
+.dato-item i {
+    font-size: 1.5em;
+    margin-right: 15px;
+    color: #4CAF50;
+    /* Iconos en color verde */
+}
+
+.dato-item .etiqueta {
+    display: block;
+    font-weight: bold;
+    font-size: 1em;
+    line-height: 1.2;
+}
+
+.dato-item .valor {
+    margin-left: 35px;
+    font-size: 1.1em;
+    font-weight: 300;
+    margin-top: 5px;
+}
+
+/* --- Estilos para la sección de Soporte (Ajustes de Enlaces) --- */
+
+.seccion-soporte .dato-item .email-link {
+    color: white;
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+
+/* Estilo que se aplica cuando el mouse pasa sobre el enlace */
+.seccion-soporte .dato-item .email-link:hover {
+    color: #66ff66;
+}
+
+.mapa-link {
+    text-decoration: none;
+    color: white;
+}
+
+
+.mapa-link:hover {
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+    color: #66ff66;
+    ;
+}
+
+/*Responsividad*/
+@media (max-width: 992px) {
+    .contenedor-principal {
+        gap: 40px;
+        padding: 10px;
+    }
+
+    .contacto-titulo {
+        font-size: 2.5em;
+    }
+}
+
+/* Celulares grandes */
+@media (max-width: 768px) {
+    .contenedor-principal {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .subtitulo {
+        font-size: 1.3em;
+        text-align: center;
+    }
+
+    .dato-item {
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    .dato-item .valor {
+        margin-left: 0;
+    }
+
+    .contacto-titulo {
+        font-size: 2.2em;
+        margin-top: 20px;
+    }
+}
+
+/* Celulares pequeños */
+@media (max-width: 480px) {
+    .contacto-titulo {
+        font-size: 2em;
+    }
+
+    .subtitulo {
+        font-size: 1.2em;
+    }
+
+    .dato-item i {
+        font-size: 1.2em;
+    }
+
+    .dato-item .valor {
+        font-size: 1em;
+    }
+
+    input,
+    textarea,
+    .boton-enviar {
+        font-size: 1em;
+    }
+}

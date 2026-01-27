@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiénes Somos - BackToTheGame</title>
+    <link rel="stylesheet" href="/CSS/Style.css" />
+    <!-- Estilo General -->
+    <link rel="stylesheet" href="/CSS/nosotros.css" />
+    <!-- Estilo Nosotros-->
+    <link rel="stylesheet" href="/CSS/StyleFooter.css" />
+    <!-- Estilo Footer-->
+    <link rel="stylesheet" href="/CSS/StyleHeader.css" />
+    <!-- Estilo Header-->
+    <link
+      rel="icon"
+      href="/img/Back_to_the_game-removebg-preview.ico"
+      type="image/x-icon"
+    />
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Tipografía -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <header>
+      <div class="header-container">
+        <div class="logo-group">
+          <img src="/img/Logo.png" alt="LogoBackToTheGame" class="imgLogo" />
+          <div class="logo">Back to the game</div>
+        </div>
+
+        <nav class="desktop-menu">
+          <a href="/homepage.html">Inicio</a>
+          <a href="/Pages/tienda.html">Tienda</a>
+          <a href="/Pages/About.html">Nosotros</a>
+          <a href="/Pages/contacto.html">Contáctenos</a>
+        </nav>
+
+        <div class="icons">
+          <a href="#"><i class="bi bi-cart"></i></a>
+          <a href="/Pages/Login.html"><i class="bi bi-person"></i></a>
+        </div>
+
+        <div class="hamburger" onclick="toggleMenu()">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="/homepage.html">Inicio</a>
+        <a href="/Pages/tienda.html">Tienda</a>
+        <a href="/Pages/About.html">Nosotros</a>
+        <a href="/Pages/contacto.html">Contáctenos</a>
+        <div class="mobile-icons">
+          <a href="#"><i class="bi bi-cart"></i></a>
+          <a href="/Pages/Login.html"><i class="bi bi-person"></i></a>
+        </div>
+      </div>
+    </header>
+
+    <div class="container my-5">
+      <div class="contenedor_quienes">
+        <img
+          src="/img/consola nintendo.jpg"
+          alt="imgpostre"
+          class="imagen-quienes"
+        />
+
+        <p>
+          Somos un equipo apasionado por el mundo gamer, convencido de que cada
+          juego tiene el poder de unir, inspirar y transformar momentos
+          cotidianos en algo inolvidable. Nacimos con una idea clara: construir
+          un lugar donde todos los gamers expertos, jugadores casuales, familias
+          o curiosos puedan sentirse en casa. Un espacio confiable, moderno y
+          auténtico donde encontrar no solo tecnología, sino historia, comunidad
+          y emoción. <br /><br />
+          En Back To The Game no solo vendemos consolas: creamos experiencias
+          que despiertan emociones, conectan recuerdos y ofrecen nuevas
+          aventuras.
+        </p>
+      </div>
+      <br /><br />
+      <div class="titulos-arcade">
+        <h4>Somos el mundo donde empieza el juego y nunca termina.</h4>
+      </div>
+      <div class="tarjetas_container">
+        <div id="mision" class="tarjeta">
+          <h3>Misión</h3>
+          <p>
+            Ofrecer una experiencia de compra fácil, clara y sin enredos para
+            que las personas vuelvan a disfrutar de esos juegos que marcaron su
+            vida. Un espacio donde se encienda la pasión al ver una consola
+            retro o un juego que no pasa de moda, creando así experiencias
+            inolvidables.
+          </p>
+        </div>
+        <div id="vision" class="tarjeta">
+          <h3>Visión</h3>
+          <p>
+            Posicionarnos como el mejor e-commerce reconocidos por ofrecer
+            innovación y el mejor servicio gamer de la industria. Queremos
+            construir un lugar donde la gente se sienta en casa, donde lo
+            inolvidable cobre vida y se pueda conectar con emociones y
+            recuerdos.
+          </p>
+        </div>
+      </div>
+      <div>
+        <h2 class="text-center font-bebas">NOSOTROS</h2>
+        <p>
+          Somos un equipo multidisciplinario de profesionales, unidos por la
+          visión de elevar la experiencia del usuario en el sector gaming.
+          Combinamos la excelencia en el desarrollo tecnológico con un diseño
+          intuitivo y centrado en el jugador, asegurando que cada interacción en
+          BackToTheGame sea fluida, potente y memorable.
+        </p>
+        <hr class="my-5 border-secondary" />
+      </div>
+    </div>
+
+    <div class="container mb-5">
+      <div class="text-center mb-5">
+        <h2 class="font-bebas">INTEGRANTES</h2>
+      </div>
+
+      <div class="row g-4 justify-content-center">
+        <!-- Esta es la card de Mateo -->
+        <div class="col-12 col-sm-6 col-lg-2 d-flex">
+          <div class="flip-card w-100">
+            <div class="flip-card-inner">
+              <div
+                class="flip-card-front card border-0 shadow-lg text-center p-2"
+              >
+                <div
+                  class="ratio ratio-1x1 border border-2 rounded mb-3 overflow-hidden"
+                >
+                  <img
+                    src="/img/imgNosotros/foto1.png"
+                    class="w-100 h-100 object-fit-cover"
+                    alt="David Mateo avatar"
+                  />
+                </div>
+                <div class="card-body p-2">
+                  <h4 class="card-title fw-bold verde-primary">
+                    David Mateo Rodriguez
+                  </h4>
+                  <p class="card-text text-secondary-color mb-0">
+                    Desarrollador UI/UX
+                  </p>
+                </div>
+              </div>
+
+              <!--Esta es la parte trasera de la card-->
+              <div class="flip-card-back">
+                <img
+                  src="/img/imgNosotros/Imagen David.png"
+                  alt="Imagen de Mateo"
+                  class="personal-image"
+                />
+                <div class="perfil-links">
+                  <h4>Mateo Rodriguez</h4>
+                  <a
+                    href="https://api.whatsapp.com/send?phone=+573003470655&text=Hola Mateo 😊"
+                    class="icon-circle"
+                    ><i class="bi bi-whatsapp"></i
+                  ></a>
+
+                  <a
+                    href="https://github.com/Mateoro1705"
+                    class="icon-circle"
+                    aria-label="GitHub"
+                    ><i class="bi bi-github"></i
+                  ></a>
+                  <a href="" class="icon-circle"
+                    ><i class="bi bi-linkedin"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Esta es la card de Danna -->
+        <div class="col-12 col-sm-6 col-lg-2 d-flex">
+          <div class="flip-card w-100">
+            <div class="flip-card-inner">
+              <div
+                class="flip-card-front card border-0 shadow-lg text-center p-2"
+              >
+                <div
+                  class="ratio ratio-1x1 border border-2 rounded mb-3 overflow-hidden"
+                >
+                  <img
+                    src="/img/imgNosotros/foto2.png"
+                    class="w-100 h-100 object-fit-cover"
+                    alt="Danna"
+                  />
+                </div>
+                <div class="card-body p-2">
+                  <h4 class="card-title fw-bold verde-primary">
+                    Danna Sofia Salamanca
+                  </h4>
+                  <p class="card-text text-secondary-color mb-0">
+                    Desarrolladora UI/UX
+                  </p>
+                </div>
+              </div>
+
+              <!--Esta es la parte trasera de la card-->
+              <div class="flip-card-back">
+                <img
+                  src="/img/imgNosotros/Imagen Danna.jpeg"
+                  alt="Imagen de Danna"
+                  class="personal-image"
+                />
+                <div class="perfil-links">
+                  <h4>Danna Salamanca</h4>
+                  <a
+                    href="https://api.whatsapp.com/send?phone=+573008833628&text=Hola Danna 😊"
+                    class="icon-circle"
+                    ><i class="bi bi-whatsapp"></i
+                  ></a>
+
+                  <a
+                    href="https://github.com/salobando"
+                    class="icon-circle"
+                    aria-label="GitHub"
+                    ><i class="bi bi-github"></i
+                  ></a>
+                  <a
+                    href="https://www.linkedin.com/in/danna-sofia-salamanca-obando-desarrolladora-fullstack"
+                    class="icon-circle"
+                    ><i class="bi bi-linkedin"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Esta es la card de Rodolfo -->
+        <div class="col-12 col-sm-6 col-lg-2 d-flex">
+          <div class="flip-card w-100">
+            <div class="flip-card-inner">
+              <div
+                class="flip-card-front card border-0 shadow-lg text-center p-2"
+              >
+                <div
+                  class="ratio ratio-1x1 border border-2 rounded mb-3 overflow-hidden"
+                >
+                  <img
+                    src="/img/imgNosotros/foto3.png"
+                    class="w-100 h-100 object-fit-cover"
+                    alt="Rodolfo"
+                  />
+                </div>
+                <div class="card-body p-2">
+                  <h4 class="card-title fw-bold verde-primary">
+                    Rodolfo Junior Ruidiaz
+                  </h4>
+                  <p class="card-text text-secondary-color mb-0">
+                    Desarrollador UI/UX
+                  </p>
+                </div>
+              </div>
+
+              <!--Esta es la parte trasera de la card-->
+              <div class="flip-card-back">
+                <img
+                  src="/img/imgNosotros/Imagen Rodolfo.png"
+                  alt="Imagen de Rodolfo"
+                  class="personal-image"
+                />
+                <div class="perfil-links">
+                  <h4>Rodolfo Ruidiaz</h4>
+                  <a
+                    href="https://api.whatsapp.com/send?phone=+573143676243&text=Hola Rodolfo 😊"
+                    class="icon-circle"
+                    ><i class="bi bi-whatsapp"></i
+                  ></a>
+
+                  <a
+                    href="https://github.com/RodolfoRuidiazz"
+                    class="icon-circle"
+                    aria-label="GitHub"
+                    ><i class="bi bi-github"></i
+                  ></a>
+                  <a
+                    href="https://www.linkedin.com/in/rodolfo-ruidiaz-full-stack-developer"
+                    class="icon-circle"
+                    ><i class="bi bi-linkedin"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Esta es la card de Erika -->
+        <div class="col-12 col-sm-6 col-lg-2 d-flex">
+          <div class="flip-card w-100">
+            <div class="flip-card-inner">
+              <div
+                class="flip-card-front card border-0 shadow-lg text-center p-2"
+              >
+                <div
+                  class="ratio ratio-1x1 border border-2 rounded mb-3 overflow-hidden"
+                >
+                  <img
+                    src="/img/imgNosotros/foto5.png"
+                    class="w-100 h-100 object-fit-cover"
+                    alt="Erika"
+                  />
+                </div>
+                <div class="card-body p-2">
+                  <h4 class="card-title fw-bold verde-primary">
+                    Erika Julieth Niviayo
+                  </h4>
+                  <p class="card-text text-secondary-color mb-0">
+                    Desarrolladora UI/UX
+                  </p>
+                </div>
+              </div>
+
+              <!--Esta es la parte trasera de la card-->
+              <div class="flip-card-back">
+                <img
+                  src="/img/imgNosotros/Imagen Erika.jpeg"
+                  alt="Imagen de Mateo"
+                  class="personal-image"
+                />
+                <div class="perfil-links">
+                  <h4>Erika Niviayo</h4>
+                  <a
+                    href="https://api.whatsapp.com/send?phone=+573003660793&text=Hola Erika 😊"
+                    class="icon-circle"
+                    ><i class="bi bi-whatsapp"></i
+                  ></a>
+
+                  <a
+                    href="https://github.com/eri-niviayo10"
+                    class="icon-circle"
+                    aria-label="GitHub"
+                    ><i class="bi bi-github"></i
+                  ></a>
+                  <a href="" class="icon-circle"
+                    ><i class="bi bi-linkedin"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Esta es la card de Sebastian -->
+        <div class="col-12 col-sm-6 col-lg-2 d-flex">
+          <div class="flip-card w-100">
+            <div class="flip-card-inner">
+              <div
+                class="flip-card-front card border-0 shadow-lg text-center p-2"
+              >
+                <div
+                  class="ratio ratio-1x1 border border-2 rounded mb-3 overflow-hidden"
+                >
+                  <img
+                    src="/img/imgNosotros/foto4.png"
+                    class="w-100 h-100 object-fit-cover"
+                    alt="Sebastian"
+                  />
+                </div>
+                <div class="card-body p-2">
+                  <h4 class="card-title fw-bold verde-primary">
+                    Sebastian Leon Pimentel
+                  </h4>
+                  <p class="card-text text-secondary-color mb-0">
+                    Desarrollador UI/UX
+                  </p>
+                </div>
+              </div>
+
+              <!--Esta es la parte trasera de la card-->
+              <div class="flip-card-back">
+                <img
+                  src="/img/imgNosotros/Imagen Sebastian.png"
+                  alt="Imagen de Mateo"
+                  class="personal-image"
+                />
+                <div class="perfil-links">
+                  <h4>Sebastian Leon</h4>
+                  <a
+                    href="https://api.whatsapp.com/send?phone=+573112405704&text=Hola Sebastian 😊"
+                    class="icon-circle"
+                    ><i class="bi bi-whatsapp"></i
+                  ></a>
+
+                  <a
+                    href="https://github.com/sebastianleon6"
+                    class="icon-circle"
+                    aria-label="GitHub"
+                    ><i class="bi bi-github"></i
+                  ></a>
+                  <a
+                    href="www.linkedin.com/in/sebastian-león-pimentel-full-stack"
+                    class="icon-circle"
+                    ><i class="bi bi-linkedin"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="container">
+        <div class="footer-descripcion">
+          <img src="/img/Logo.png" alt="LogoBackToTheGame" />
+          <p>Somos el mundo donde empieza el juego y nunca termina.</p>
+        </div>
+        <div class="container-columnas">
+          <nav class="footer-nav">
+            <h3>Corporativo</h3>
+            <ul>
+              <li><a href="/homepage.html">Inicio</a></li>
+              <li><a href="/Pages/About.html">Nosotros</a></li>
+              <li><a href="/Pages/tienda.html">Tienda</a></li>
+              <li><a href="/Pages/contacto.html">Contacto</a></li>
+            </ul>
+          </nav>
+          <hr />
+          <nav class="footer-nav">
+            <h3>Noticias</h3>
+            <ul>
+              <li>
+                <a href=""
+                  >Próximos <br />
+                  Lanzamientos</a
+                >
+              </li>
+              <li><a href="">Destacados</a></li>
+              <li><a href="">Comentarios</a></li>
+            </ul>
+          </nav>
+          <hr />
+          <nav class="footer-nav">
+            <h3>Síguenos</h3>
+            <a
+              href="https://github.com/salobando/BackToTheGame.git"
+              class="icon-circle"
+              aria-label="GitHub"
+              ><i class="bi bi-github"></i
+            ></a>
+            <a href="#" class="icon-circle" aria-label="Facebook"
+              ><i class="bi bi-facebook"></i
+            ></a>
+            <br />
+            <a href="#" class="icon-circle" aria-label="Instagram"
+              ><i class="bi bi-instagram"></i
+            ></a>
+            <a href="#" class="icon-circle" aria-label="Youtube"
+              ><i class="bi bi-youtube"></i
+            ></a>
+          </nav>
+        </div>
+
+        <div class="footer-copyright">
+          <p>© 2025 Back To The Game. Todos los derechos reservados</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/JS/scriptHeader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
