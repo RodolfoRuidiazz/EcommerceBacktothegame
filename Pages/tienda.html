@@ -40,7 +40,7 @@
           <span id="cart-count" class="cart-count">0</span>
         </a>
 
-        <a href="/Pages/Login.html"><i class="bi bi-person"></i></a>
+        <a href="/Pages/Login.html" id="userLink"><i id="userIcon" class="bi bi-person"></i></a>
       </div>
 
       <div class="hamburger" onclick="toggleMenu()">
@@ -69,12 +69,12 @@
 
   <!-- ================= SECCIÓN TIENDA ================= -->
   <section class="destacados-section">
-    
+
     <div class="marcas">
-      <div class="row g-4 justify-content-center" >
+      <div class="row g-4 justify-content-center">
 
         <!-- CARD -->
-         <div class="col-md-4 d-flex justify-content-center">
+        <div class="col-md-4 d-flex justify-content-center">
           <div class="game-card">
             <img src="/img/marioNintendo.png" class="img-fluid main-img" alt="" style="width: 57%; height: 57%;">
             <img src="/img/luigiNintendo.png" class="hover-img" alt="">
@@ -96,7 +96,7 @@
             <img src="/img/fifaPs.jpg" class="hover-img" alt="">
             <div class="brand playstation">PlayStation</div>
           </div>
-        </div>        
+        </div>
 
       </div>
     </div>
@@ -145,7 +145,7 @@
           </svg>
           Seguir comprando
         </button>
-        <a href="CarritoNew.html" class="irCarrito">
+        <a href="#" class="irCarrito" id="btnIrCarrito">
           <svg viewBox="0 0 24 24">
             <path d="M6 6h15l-1.5 9h-12z" />
             <circle cx="9" cy="21" r="1.5" />
@@ -214,6 +214,27 @@
   <script src="/JS/actualizarcarrito.js"></script>
   <script src="/JS/scriptHeader.js"></script>
   <script src="/JS/carrito.js"></script>
+  <script src="/JS/cerrarSesion.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const btnIrCarrito = document.getElementById("btnIrCarrito");
+
+      btnIrCarrito.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        const usuarioLogueado = localStorage.getItem("usuarioEmail");
+
+        if (usuarioLogueado) {
+          // Sesión activa → carrito
+          window.location.href = "/Pages/CarritoNew.html";
+        } else {
+          // Sin sesión → login
+          window.location.href = "/Pages/Login.html";
+        }
+      });
+    });
+  </script>
+
 </body>
 
 </html>
