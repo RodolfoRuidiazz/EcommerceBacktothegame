@@ -1,4 +1,4 @@
-f// actualizarcarrito.js
+// actualizarcarrito.js
 function actualizarContador() {
   const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
   const total = carrito.reduce((s, p) => s + Number(p.cantidad || 0), 0);

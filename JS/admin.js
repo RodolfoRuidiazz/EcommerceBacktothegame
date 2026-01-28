@@ -381,63 +381,66 @@ function cargarTotalesCards() {
 
 
 function cargarGrafica() {
-    fetch("http://localhost:8080/orden/productosTop")
-        .then(response => response.json())
-        .then(data => {
-            console.log("Datos recibidos:", data);
-            // Extraer datos
-            const nombres = data.map(p => p.nombreProducto);
-            const cantidades = data.map(p => p.totalVendido);
+    const token = localStorage.getItem("token");
 
-            // Crear gráfica
-            const ctx = document.getElementById("graficaProductos").getContext("2d");
+    if (!token) {
+        console.error("No hay token en localStorage");
+        return;
+    }
 
-            new Chart(ctx, {
-                type: "bar",
-                data: {
-                    labels: nombres,
-                    datasets: [{
-                        label: "Cantidad vendida",
-                        data: cantidades,
-                        backgroundColor: "rgba(25, 221, 100, 0.7)",
-                        borderColor: "rgb(54, 235, 69)",
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    scales: {
-                        y: {
-                            ticks: {
-                                color: "#ffffff" // 👈 números eje Y
-                            },
-                            beginAtZero: true,
-                            title: {
-                                display: true,
-                                text: "Unidades vendidas",
-                                color: "#ffffff"
-                            },
-                            grid: {
-                                color: "rgba(74, 247, 74, 0.1)"
-                            }
-                        },
-                        x: {
-                            ticks: {
-                                color: "#ffffff" // 👈 números eje Y
-                            },
-                            title: {
-                                display: true,
-                                text: "Productos",
-                                color: "#ffffff"
-                            },
-                            grid: { color: "rgba(255,255,255,0.08)" }
-                        }
+    fetch("http://localhost:8080/orden/productosTop", {
+        headers: {
+            "Authorization": `Bearer ${token}`
+        }
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error("No autorizado o error al cargar datos");
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log("Datos recibidos:", data);
+
+        const nombres = data.map(p => p.nombreProducto);
+        const cantidades = data.map(p => p.totalVendido);
+
+        const canvas = document.getElementById("graficaProductos");
+        if (!canvas) {
+            console.error("No existe el canvas graficaProductos");
+            return;
+        }
+
+        const ctx = canvas.getContext("2d");
+
+        new Chart(ctx, {
+            type: "bar",
+            data: {
+                labels: nombres,
+                datasets: [{
+                    label: "Cantidad vendida",
+                    data: cantidades,
+                    backgroundColor: "rgba(25, 221, 100, 0.7)",
+                    borderColor: "rgb(54, 235, 69)",
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: { color: "#ffffff" }
+                    },
+                    x: {
+                        ticks: { color: "#ffffff" }
                     }
                 }
-            });
-        })
-        .catch(error => {
-            console.error("Error al cargar la gráfica:", error);
+            }
         });
-
+    })
+    .catch(error => {
+        console.error("Error al cargar la gráfica:", error);
+    });
 }
+

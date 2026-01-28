@@ -67,6 +67,7 @@ form.addEventListener('submit', function (event) {
 });
 
 
+
 /**
  * Función que contiene todas las validaciones del formulario.
  * Muestra el mensaje de error en la pantalla si alguna falla.

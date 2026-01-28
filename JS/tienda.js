@@ -17,6 +17,41 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ===============================
+  // CARGAR PRODUCTOS DESDE BACKEND
+  
+  const contenedor = document.getElementById("consolas");
+  contenedor.innerHTML = "";
+
+  fetch("http://localhost:8080/producto")
+    .then(response => {
+      if (!response.ok) throw new Error("Error al cargar productos");
+      return response.json();
+    })
+    .then(productos => {
+      productos.forEach(prod => crearCardTienda(prod));
+    })
+    .catch(error => console.error(error));
+
+  function crearCardTienda(prod) {
+    const card = document.createElement("div");
+    card.className = "card-compras animate-card";
+    card.dataset.id = prod.idProducto;
+
+    card.innerHTML = `
+      <div class="img-box">
+        <img src="${prod.imagen}" alt="${prod.nombre}">
+      </div>
+      <h3 class="title-card">${prod.nombre}</h3>
+      <span class="precio-prod">$${Number(prod.precio).toLocaleString()}</span>
+      <div class="btns">
+        <button type="button" class="btn add">Agregar</button>
+      </div>
+    `;
+
+    contenedor.appendChild(card);
+  }
+  
+  // ===============================
   // AGREGAR PRODUCTO
   
   function agregarProductoObjeto(prod) {
@@ -144,39 +179,6 @@ document.addEventListener("DOMContentLoaded", () => {
     abrirModalProducto();
   });
 
-  // ===============================
-  // CARGAR PRODUCTOS DESDE BACKEND
   
-  const contenedor = document.getElementById("consolas");
-  contenedor.innerHTML = "";
-
-  fetch("http://localhost:8080/producto")
-    .then(response => {
-      if (!response.ok) throw new Error("Error al cargar productos");
-      return response.json();
-    })
-    .then(productos => {
-      productos.forEach(prod => crearCardTienda(prod));
-    })
-    .catch(error => console.error(error));
-
-  function crearCardTienda(prod) {
-    const card = document.createElement("div");
-    card.className = "card-compras animate-card";
-    card.dataset.id = prod.idProducto;
-
-    card.innerHTML = `
-      <div class="img-box">
-        <img src="${prod.imagen}" alt="${prod.nombre}">
-      </div>
-      <h3 class="title-card">${prod.nombre}</h3>
-      <span class="precio-prod">$${Number(prod.precio).toLocaleString()}</span>
-      <div class="btns">
-        <button type="button" class="btn add">Agregar</button>
-      </div>
-    `;
-
-    contenedor.appendChild(card);
-  }
 
 });
