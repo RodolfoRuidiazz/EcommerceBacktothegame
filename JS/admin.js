@@ -381,66 +381,55 @@ function cargarTotalesCards() {
 
 
 function cargarGrafica() {
-    const token = localStorage.getItem("token");
+    fetch("http://localhost:8080/orden/productosTop")
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Error al cargar datos");
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log("Datos recibidos:", data);
 
-    if (!token) {
-        console.error("No hay token en localStorage");
-        return;
-    }
+            const nombres = data.map(p => p.nombreProducto);
+            const cantidades = data.map(p => p.totalVendido);
 
-    fetch("http://localhost:8080/orden/productosTop", {
-        headers: {
-            "Authorization": `Bearer ${token}`
-        }
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error("No autorizado o error al cargar datos");
-        }
-        return response.json();
-    })
-    .then(data => {
-        console.log("Datos recibidos:", data);
+            const canvas = document.getElementById("graficaProductos");
+            if (!canvas) {
+                console.error("No existe el canvas graficaProductos");
+                return;
+            }
 
-        const nombres = data.map(p => p.nombreProducto);
-        const cantidades = data.map(p => p.totalVendido);
+            const ctx = canvas.getContext("2d");
 
-        const canvas = document.getElementById("graficaProductos");
-        if (!canvas) {
-            console.error("No existe el canvas graficaProductos");
-            return;
-        }
-
-        const ctx = canvas.getContext("2d");
-
-        new Chart(ctx, {
-            type: "bar",
-            data: {
-                labels: nombres,
-                datasets: [{
-                    label: "Cantidad vendida",
-                    data: cantidades,
-                    backgroundColor: "rgba(25, 221, 100, 0.7)",
-                    borderColor: "rgb(54, 235, 69)",
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                responsive: true,
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        ticks: { color: "#ffffff" }
-                    },
-                    x: {
-                        ticks: { color: "#ffffff" }
+            new Chart(ctx, {
+                type: "bar",
+                data: {
+                    labels: nombres,
+                    datasets: [{
+                        label: "Cantidad vendida",
+                        data: cantidades,
+                        backgroundColor: "rgba(25, 221, 100, 0.7)",
+                        borderColor: "rgb(54, 235, 69)",
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: { color: "#ffffff" }
+                        },
+                        x: {
+                            ticks: { color: "#ffffff" }
+                        }
                     }
                 }
-            }
+            });
+        })
+        .catch(error => {
+            console.error("Error al cargar la gráfica:", error);
         });
-    })
-    .catch(error => {
-        console.error("Error al cargar la gráfica:", error);
-    });
 }
 
