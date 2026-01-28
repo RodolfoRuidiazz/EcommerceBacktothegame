@@ -16,6 +16,29 @@ document.addEventListener("DOMContentLoaded", () => {
     if (window.actualizarContador) actualizarContador();
   }
 
+    // ===============================
+  // NUEVO: VALIDAR Y DESCONTAR STOCK EN BACKEND
+
+  function comprarProductoBackend(idProducto, cantidad) {
+    return fetch("http://localhost:8080/producto/comprar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        idProducto: idProducto,
+        cantidad: cantidad
+      })
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("No hay stock suficiente");
+      }
+      return response.text();
+    });
+  }
+
+
   // ===============================
   // AGREGAR PRODUCTO
   
@@ -140,8 +163,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const producto = { idProducto, nombre, imagen: img, precio };
 
-    agregarProductoObjeto(producto);
-    abrirModalProducto();
+    // NUEVO: primero validar stock en backend
+    comprarProductoBackend(idProducto, 1)
+      .then(() => {
+        // SOLO si el backend confirma
+        agregarProductoObjeto(producto);
+        abrirModalProducto();
+      })
+      .catch(error => {
+        alert(error.message || "No hay stock disponible");
+      });
+
   });
 
   // ===============================
@@ -165,15 +197,30 @@ document.addEventListener("DOMContentLoaded", () => {
     card.className = "card-compras animate-card";
     card.dataset.id = prod.idProducto;
 
+    
+
     card.innerHTML = `
       <div class="img-box">
         <img src="${prod.imagen}" alt="${prod.nombre}">
       </div>
+
       <h3 class="title-card">${prod.nombre}</h3>
-      <span class="precio-prod">$${Number(prod.precio).toLocaleString()}</span>
+
+      <span class="precio-prod">
+        $${Number(prod.precio).toLocaleString()}
+      </span>
+
+      <span class="precio-prod">
+        Stock disponible: ${prod.stock}
+      </span>
+
       <div class="btns">
-        <button type="button" class="btn add">Agregar</button>
+        <button type="button" class="btn add"
+          ${prod.stock === 0 ? "disabled" : ""}>
+          Agregar
+        </button>
       </div>
+
     `;
 
     contenedor.appendChild(card);
