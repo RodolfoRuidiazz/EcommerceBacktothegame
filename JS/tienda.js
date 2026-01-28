@@ -60,16 +60,29 @@ document.addEventListener("DOMContentLoaded", () => {
     card.className = "card-compras animate-card";
     card.dataset.id = prod.idProducto;
 
-    card.innerHTML = `
-      <div class="img-box">
-        <img src="${prod.imagen}" alt="${prod.nombre}">
-      </div>
-      <h3 class="title-card">${prod.nombre}</h3>
-      <span class="precio-prod">$${Number(prod.precio).toLocaleString()}</span>
-      <div class="btns">
-        <button type="button" class="btn add">Agregar</button>
-      </div>
-    `;
+card.innerHTML = `
+  <div class="img-box">
+    <img src="${prod.imagen}" alt="${prod.nombre}">
+  </div>
+
+  <h3 class="title-card">${prod.nombre}</h3>
+
+  <span class="precio-prod">
+    $${Number(prod.precio).toLocaleString()}
+  </span>
+
+  <!-- NUEVO: stock arriba del botón -->
+  <span class="precio-prod">
+    Stock disponible: ${prod.stock}
+  </span>
+
+  <div class="btns">
+    <button type="button" class="btn add"
+      ${prod.stock === 0 ? "disabled" : ""}>
+      Agregar
+    </button>
+  </div>
+`;
 
     contenedor.appendChild(card);
   }
