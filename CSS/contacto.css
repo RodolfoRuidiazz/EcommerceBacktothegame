@@ -6,31 +6,30 @@
 /* Contenedor principal para centrar y aplicar Flexbox */
 .contenedor-principal {
     max-width: 1000px;
-    margin: 50px auto;
-    padding: 20px;
+    margin: 30px auto;
+    padding: 45px;
     display: flex;
     gap: 80px;
     font-family: 'Montserrat', sans-serif;
+    background-color: black;
     color: white;
+
+}
+
+main {
+    background: linear-gradient(rgba(0, 0, 0, 0.98),
+            rgba(0, 0, 0, 0.6)),
+        url("../img/fondologin.png") no-repeat center center / cover;
 }
 
 /*Imagen de fondo*/
 .contacto-header {
     width: 100%;
-    height: 250px;
-    background:
-        linear-gradient(rgba(0, 0, 0, 0.55),
-            rgba(0, 0, 0, 0.30)),
-        url("/img/spider-man-el-hombre-arana-marvels_5120x2880_xtrafondos.com.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-
+    margin-top: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
     /* Alinea el contenido arriba */
-
 }
 
 
@@ -129,6 +128,8 @@
     font-weight: 300;
     margin-top: 5px;
 }
+
+
 
 /* --- Estilos para la sección de Soporte (Ajustes de Enlaces) --- */
 

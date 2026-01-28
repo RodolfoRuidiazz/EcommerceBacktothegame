@@ -84,36 +84,98 @@
     color: #4CAF50;
 }
 
-@media (max-width: 768px) {
+/* ========================= */
+/* RESPONSIVE LOGIN */
+/* ========================= */
+
+/* Tablets */
+@media (max-width: 992px) {
     .seccion-formulario {
-        padding: 40px 30px;
-        /* Reduce padding en tablet */
         width: 90%;
+        max-width: 420px;
+        padding: 40px 35px;
+    }
+
+    .campo label {
+        display: flex;
+        justify-content: space-around;
+    }
+
+
+    .campo input {
+        padding: 12px;
+        margin: 15px;
+        font-size: 14px;
     }
 
     .contacto-titulo {
         font-size: 28px;
     }
+
+    .boton-enviar {
+        width: 150px;
+        margin: 0 135px;
+        font-size: 16px;
+    }
+
 }
 
-@media (max-width: 480px) {
+/* Móviles */
+@media (max-width: 576px) {
+    .contenedor-principal {
+        padding: 20px;
+    }
+
+
+
     .seccion-formulario {
-        padding: 30px 20px;
-        /* Menos padding en móviles */
         width: 100%;
+        padding: 30px 20px;
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 
     .contacto-titulo {
         font-size: 24px;
+        margin-bottom: 25px;
+
+    }
+
+    .campo label {
+        display: flex;
+        justify-content: space-around;
     }
 
     .campo input {
         padding: 12px;
+        margin: 15px;
         font-size: 14px;
     }
 
     .boton-enviar {
-        padding: 12px;
+        width: 150px;
+        margin: 0 120px;
         font-size: 16px;
+    }
+
+
+
+
+    .seccion-formulario p {
+        font-size: 14px;
+    }
+}
+
+
+/* Móviles muy pequeños */
+@media (max-width: 360px) {
+    .contacto-titulo {
+        font-size: 22px;
+    }
+
+    .seccion-formulario {
+        padding: 25px 15px;
     }
 }
