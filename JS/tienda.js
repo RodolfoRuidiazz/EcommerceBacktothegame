@@ -16,6 +16,29 @@ document.addEventListener("DOMContentLoaded", () => {
     if (window.actualizarContador) actualizarContador();
   }
 
+    // ===============================
+  // NUEVO: VALIDAR Y DESCONTAR STOCK EN BACKEND
+
+  function comprarProductoBackend(idProducto, cantidad) {
+    return fetch("http://localhost:8080/producto/comprar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        idProducto: idProducto,
+        cantidad: cantidad
+      })
+    })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("No hay stock suficiente");
+      }
+      return response.text();
+    });
+  }
+
+
   // ===============================
   // CARGAR PRODUCTOS DESDE BACKEND
   
@@ -175,8 +198,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const producto = { idProducto, nombre, imagen: img, precio };
 
-    agregarProductoObjeto(producto);
-    abrirModalProducto();
+    // NUEVO: primero validar stock en backend
+    comprarProductoBackend(idProducto, 1)
+      .then(() => {
+        // SOLO si el backend confirma
+        agregarProductoObjeto(producto);
+        abrirModalProducto();
+      })
+      .catch(error => {
+        alert(error.message || "No hay stock disponible");
+      });
+
   });
 
   
