@@ -4,12 +4,11 @@
 :root {
   --bg-body: #000000;
   --bg-card: #1f1f1f;
-  --txt: #25d366; /* Verde premium */
+  --txt: #25d366;
   --accent: #25d366;
   --secondary: #333;
   --red: #ff3333;
   --hover: #25d36680;
-  --zoom: 0.85; /* Escala general del carrito */
 }
 
 /* ==========================
@@ -26,81 +25,63 @@ body {
   background-color: var(--bg-body);
   color: #fff;
   overflow-x: hidden;
-  transform: scale(var(--zoom));
-  transform-origin: top center; /* mantiene centrado al escalar */
 }
 
 /* ==========================
-   Wrapper / fondo carrito
+   Wrapper carrito
  */
 .carrito-wrap {
   position: relative;
+  width: 100%;
   min-height: 100vh;
-  padding: 40px 20px;
+  padding: 24px 14px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
   align-items: center;
   overflow: hidden;
-  border-radius: 12px;
+
   background: url('/IMG/imagencarrito.jpg') no-repeat center center;
   background-size: cover;
-  background-attachment: fixed;
-  box-shadow: inset 0 0 100px rgba(0,0,0,0.6);
-  transition: all 0.5s ease;
+  background-color: #000;
+
+  box-shadow: inset 0 0 120px rgba(0,0,0,0.7);
 }
 
-/* Overlay para legibilidad */
+/* Overlay */
 .carrito-wrap::before {
   content: '';
   position: absolute;
   inset: 0;
   background: rgba(0,0,0,0.6);
   z-index: 0;
-  border-radius: 12px;
   pointer-events: none;
 }
 
-/* Contenido encima del overlay */
 .carrito-wrap > * {
   position: relative;
   z-index: 1;
 }
 
-/* Animación suave del fondo */
-@keyframes bgMove {
-  0% { background-position: center top; }
-  50% { background-position: center center; }
-  100% { background-position: center top; }
-}
-
-.carrito-wrap {
-  animation: bgMove 30s linear infinite alternate;
-}
-
 /* ==========================
-   Volver a tienda (fuera de cards)
+   Botón volver
  */
 .volver-tienda-wrap {
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-bottom: 25px;
-  position: relative;
-  z-index: 2;
+  margin-bottom: 18px;
 }
 
 .btn-volver-tienda {
-  display: inline-block;
-  padding: 12px 28px;
+  padding: 8px 20px;
+  font-size: 14px;
   font-weight: 700;
-  font-size: 16px;
   color: var(--accent);
-  background-color: transparent;
+  background: transparent;
   border: 2px solid var(--accent);
-  border-radius: 10px;
-  text-decoration: none;
+  border-radius: 8px;
   cursor: pointer;
+  text-decoration: none;
   transition: all 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
   animation: buttonEntry 0.6s ease-out;
 }
@@ -108,78 +89,73 @@ body {
 .btn-volver-tienda:hover {
   background-color: var(--accent);
   color: #000;
-  transform: scale(1.15) translateY(-3px) rotate(-1deg);
-  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.7), 0 0 15px rgba(37, 211, 102, 0.5) inset;
+  transform: scale(1.1) translateY(-2px) rotate(-1deg);
+  box-shadow: 0 6px 18px rgba(37,211,102,0.6);
 }
 
 @keyframes buttonEntry {
-  0% { opacity: 0; transform: translateY(-20px) scale(0.9); }
+  0% { opacity: 0; transform: translateY(-15px) scale(0.9); }
   100% { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 /* ==========================
-   Título carrito
+   Título
  */
 .carrito-title {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 10px;
-  font-size: 28px;
+  gap: 8px;
+  font-size: 22px;
   font-weight: 700;
   color: var(--accent);
-  margin-bottom: 20px;
-}
-
-.carrito-title svg {
-  width: 30px;
-  height: 30px;
-  fill: var(--accent);
+  margin-bottom: 14px;
 }
 
 /* ==========================
-   Grid carrito
+   Grid principal
  */
 .carrito-grid {
   width: 100%;
-  max-width: 950px;
+  max-width: 720px;
   display: grid;
-  grid-template-columns: 1fr 320px;
-  gap: 25px;
-  margin-top: 20px;
-}
-
-/* Lista de productos */
-.lista-carrito {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
+  grid-template-columns: 1fr 260px;
+  gap: 18px;
 }
 
 /* ==========================
-   Tarjetas de productos */
+   Lista productos
+*/
+.lista-carrito {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ==========================
+   Item producto
+*/
 .item-card {
   display: flex;
-  gap: 15px;
+  gap: 10px;
   align-items: center;
   background-color: var(--bg-card);
-  border-radius: 12px;
-  padding: 18px;
+  border-radius: 10px;
+  padding: 12px;
   border: 1px solid var(--secondary);
-  transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
   position: relative;
+  transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
 }
 
 .item-card:hover {
-  transform: translateY(-5px) scale(1.03);
-  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.8);
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.8);
   background-color: #222;
 }
 
-/* Imagen del producto */
+/* Imagen */
 .item-card img {
-  width: 100px;
-  height: 80px;
+  width: 80px;
+  height: 60px;
   object-fit: contain;
   border-radius: 6px;
   border: 1px solid #333;
@@ -187,71 +163,51 @@ body {
 }
 
 .item-card img:hover {
-  transform: scale(1.05) translateY(-2px);
+  transform: scale(1.08) translateY(-2px);
 }
 
-/* Información del producto */
+/* Info */
 .item-info {
   flex: 1;
 }
 
 .item-name {
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 700;
-  color: #fff;
 }
 
-/* Descripciones más naturales */
 .item-desc {
-  font-size: 13px;
+  font-size: 11px;
   color: #a0ffa0;
   font-style: italic;
-  line-height: 1.4;
-  max-height: 42px;
+  line-height: 1.3;
+  max-height: 32px;
   overflow: hidden;
-  text-overflow: ellipsis;
 }
 
-.item-desc:hover::after {
-  content: attr(data-text);
-  position: absolute;
-  left: 0;
-  top: 100%;
-  background-color: var(--bg-card);
-  color: #fff;
-  padding: 6px 10px;
-  border-radius: 6px;
-  white-space: pre-wrap;
-  width: max-content;
-  max-width: 250px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-  z-index: 10;
-}
-
-/* Precio y subtotal */
+/* Precio */
 .item-price,
 .subtotal-item {
+  font-size: 13px;
   font-weight: 700;
-  color: #fff;
-  font-size: 15px;
 }
 
 /* ==========================
-   Controles de cantidad
+   Cantidad
  */
 .qty-controls {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
 }
 
 .qty-controls button {
   background-color: var(--bg-card);
   border: 1px solid var(--accent);
   color: var(--accent);
-  padding: 6px 12px;
+  padding: 4px 10px;
   border-radius: 6px;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
   transition: all 0.3s ease, box-shadow 0.3s ease;
 }
@@ -260,35 +216,28 @@ body {
   background-color: var(--accent);
   color: #000;
   transform: scale(1.2) translateY(-2px);
-  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.6);
+  box-shadow: 0 4px 12px rgba(37,211,102,0.6);
 }
 
 .qty-controls input {
-  width: 45px;
+  width: 38px;
+  padding: 3px;
   text-align: center;
   border-radius: 6px;
   border: 1px solid var(--secondary);
   background-color: var(--bg-card);
   color: #fff;
-  padding: 4px;
-  transition: all 0.2s ease;
-}
-
-.qty-controls input:focus {
-  border-color: var(--accent);
-  outline: none;
-  transform: scale(1.05) translateY(-1px);
 }
 
 /* ==========================
-   Botón eliminar producto
+   Eliminar
  */
 .btn-delete {
   background-color: var(--red);
   color: #fff;
   border: none;
-  padding: 8px 16px;
-  border-radius: 10px;
+  padding: 6px 12px;
+  border-radius: 8px;
   font-weight: 700;
   cursor: pointer;
   transition: all 0.3s ease, box-shadow 0.3s ease;
@@ -296,60 +245,59 @@ body {
 
 .btn-delete:hover {
   background-color: #ff5555;
-  transform: scale(1.2) translateY(-2px) rotate(-2deg);
+  transform: scale(1.2) rotate(-2deg);
   box-shadow: 0 6px 16px rgba(255,51,51,0.6);
 }
 
 /* ==========================
-   Resumen carrito
+   Resumen
  */
 .aside-resumen {
   position: sticky;
-  top: 80px;
+  top: 90px;
 }
 
 .resumen-card {
   background-color: var(--bg-card);
-  padding: 20px;
-  border-radius: 12px;
+  padding: 14px;
+  border-radius: 10px;
   border: 1px solid var(--secondary);
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 10px;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .resumen-card:hover {
   transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 12px 28px rgba(0,0,0,0.7);
+  box-shadow: 0 12px 26px rgba(0,0,0,0.7);
 }
 
 .resumen-card h3 {
   color: var(--accent);
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .resumen-line {
   display: flex;
   justify-content: space-between;
-  color: #fff;
+  font-size: 13px;
   font-weight: 700;
-  font-size: 15px;
 }
 
 .resumen-line.total {
-  font-size: 17px;
+  font-size: 15px;
   font-weight: 800;
 }
 
-/* Botones procesar / eliminar todo */
+/* Botones */
 .btn-procesar,
 .btn-eliminar-todo {
   width: 100%;
-  padding: 12px;
-  border-radius: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 13px;
   font-weight: 700;
-  font-size: 15px;
   border: none;
   cursor: pointer;
   transition: all 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
@@ -361,7 +309,6 @@ body {
 }
 
 .btn-procesar:hover {
-  background-color: #1db954;
   transform: scale(1.1) translateY(-2px);
   box-shadow: 0 6px 16px rgba(37,211,102,0.6);
 }
@@ -372,25 +319,24 @@ body {
 }
 
 .btn-eliminar-todo:hover {
-  background-color: #ff5555;
   transform: scale(1.1) translateY(-2px);
   box-shadow: 0 6px 16px rgba(255,51,51,0.6);
 }
 
-/* Métodos de pago */
+/* ==========================
+   Métodos de pago
+ */
 .metodos-pago {
   display: flex;
-  justify-content: space-around;
-  margin-top: 12px;
-  gap: 12px;
+  justify-content: space-between;
+  gap: 8px;
 }
 
 .metodos-pago img {
-  height: 45px;
-  width: auto;
+  height: 36px;
   border-radius: 6px;
   border: 1px solid var(--secondary);
-  padding: 4px;
+  padding: 3px;
   transition: transform 0.3s ease;
 }
 
@@ -398,28 +344,24 @@ body {
   transform: scale(1.1) translateY(-2px);
 }
 
-/* Carrito vacío */
+/* ==========================
+   Carrito vacío
+ */
 .empty {
-  padding: 40px;
+  padding: 30px;
   text-align: center;
   border: 2px dashed var(--secondary);
-  border-radius: 12px;
-  color: #fff;
-  font-size: 16px;
+  border-radius: 10px;
+  font-size: 14px;
 }
 
 /* ==========================
    Responsive
-*/
-@media (max-width:980px) {
-  .carrito-grid {
-    grid-template-columns: 1fr 280px;
-  }
-}
-
-@media (max-width:760px) {
+ */
+@media (max-width: 760px) {
   .carrito-grid {
     grid-template-columns: 1fr;
+    max-width: 100%;
   }
 
   .aside-resumen {

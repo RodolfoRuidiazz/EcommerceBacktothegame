@@ -1,4 +1,4 @@
-/* ===================== RESET ===================== */
+/* ===================== RESET */
 * {
   box-sizing: border-box;
 }
@@ -6,25 +6,24 @@
 body {
   font-family: 'Montserrat', sans-serif;
   margin: 0;
-  background: #0b0b10;
-  color: #e6e6eb;
+  background: #0d1117;
+  color: #e6edf3;
   position: relative;
   overflow-x: hidden;
 }
 
-/*FONDO imagen*/
+/* ===================== FONDO  */
 body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background:
-    url("/img/pagoexitoso.jpg") center / cover no-repeat;
-  filter: saturate(1.3) contrast(1.1);
-  transform: scale(1.15);
+  background: url("/img/pagoexitoso.jpg") center / cover no-repeat;
+  filter: brightness(0.6) contrast(1.05) saturate(0.85);
+  transform: scale(1.08);
   z-index: -1;
 }
 
-/*CONTENEDOR */
+/* ===================== CONTENEDOR  */
 .success-container {
   min-height: 100vh;
   display: flex;
@@ -33,139 +32,161 @@ body::before {
   padding: 16px;
 }
 
-/* CARD */
+/* ===================== CARD  */
 .success-card {
-  background: rgba(15, 15, 22, 0.94);
-  max-width: 320px;
+  background: rgba(18, 23, 34, 0.96);
   width: 100%;
+  max-width: 320px;
   padding: 22px 20px;
-  border-radius: 14px;
+  border-radius: 16px;
   text-align: center;
-  border: 1px solid rgba(0, 255, 170, 0.35);
-  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(14px);
   box-shadow:
-    0 0 25px rgba(0, 255, 170, 0.25),
-    0 20px 45px rgba(0, 0, 0, 0.6);
-  animation: fadeIn 0.6s ease-out;
+    0 18px 40px rgba(0, 0, 0, 0.8),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  animation: fadeIn 0.45s ease-out;
 }
 
-/*ICONO DE APROBADO */
+/* ===================== ICONO  */
 .success-icon {
-  width: 58px;
-  height: 58px;
-  margin: 0 auto 10px;
-  background: linear-gradient(135deg, #00ff9c, #00c3ff);
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 14px;
+  background: #1f2937;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 25px rgba(0, 255, 170, 0.7);
-  animation: pop 0.4s ease-out;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6);
+  animation: pop 0.35s ease-out;
 }
 
-/* APROBADO SVG */
+/* SVG CHECK */
 .success-icon svg {
-  width: 30px;
-  height: 30px;
-  stroke: #0b0b10;
-  stroke-width: 4;
+  width: 26px;
+  height: 26px;
+  stroke: #22c55e;
+  stroke-width: 3.2;
   fill: none;
   stroke-dasharray: 50;
   stroke-dashoffset: 50;
-  animation: drawCheck 0.6s ease forwards 0.4s;
+  animation: drawCheck 0.55s ease forwards 0.25s;
 }
 
-/*TITULO*/
+/* ===================== TITULO  */
 .success-card h1 {
   font-size: 20px;
-  color: #00ff9c;
-  margin: 6px 0;
-  text-shadow: 0 0 10px rgba(0, 255, 156, 0.6);
+  font-weight: 600;
+  color: #f9fafb;
+  margin-bottom: 6px;
 }
 
-/*TEXTO*/
+/* ===================== TEXTO  */
 .thanks {
   font-size: 13px;
-  color: #cfd3dc;
-  margin-bottom: 14px;
+  color: #9ca3af;
+  margin-bottom: 16px;
+  line-height: 1.5;
 }
 
-/*INFORMACION*/
+/* ===================== INFO PAGO */
+.payment-info {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  padding: 12px 10px;
+  margin-bottom: 16px;
+}
+
 .payment-info p {
   font-size: 12px;
   margin: 6px 0;
-  color: #e6e6eb;
+  color: #e6edf3;
 }
 
 .payment-info span {
   font-size: 11px;
-  color: #9aa0aa;
+  color: #9ca3af;
 }
 
-/*TOTAL */
+/* ===================== TOTAL  */
 .total {
   margin: 16px 0;
-  font-size: 14px;
-  color: #cfd3dc;
+  font-size: 12px;
+  color: #9ca3af;
 }
 
 .total span {
-  font-size: 20px;
-  font-weight: bold;
-  color: #00e5ff;
-  text-shadow: 0 0 8px rgba(0, 229, 255, 0.5);
+  font-size: 22px;
+  font-weight: 600;
+  color: #22c55e;
+  white-space: nowrap; /* $ y valor juntos */
 }
 
-/* BOTONES */
+/* ===================== BOTONES  */
 .actions {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
 }
 
 .btn-primary,
 .btn-outline {
-  padding: 9px;
-  border-radius: 7px;
+  padding: 10px;
+  border-radius: 10px;
   font-size: 13px;
   cursor: pointer;
-  transition: all 0.25s ease;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/*BOToN PRINCIPAL*/
+/* BOTÓN PRINCIPAL */
 .btn-primary {
-  background: linear-gradient(135deg, #00ff9c, #00c3ff);
-  color: #0b0b10;
+  background: #22c55e;
+  color: #052e16;
   border: none;
-  box-shadow: 0 0 18px rgba(0, 255, 170, 0.6);
+  font-weight: 600;
 }
 
 .btn-primary:hover {
-  transform: scale(1.06);
-  box-shadow: 0 0 30px rgba(0, 255, 170, 0.9);
+  background: #16a34a;
+  transform: translateY(-1px);
 }
 
-/*BOToN OUTLINE*/
+/* BOTÓN OUTLINE */
 .btn-outline {
   background: transparent;
-  border: 1.6px solid #00ff9c;
-  color: #00ff9c;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #e6edf3;
 }
 
 .btn-outline:hover {
-  background: rgba(0, 255, 170, 0.1);
-  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.05);
 }
 
-/*ANIMACION*/
+/* ===================== ICONOS  */
+.icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 6px;
+  stroke: currentColor;
+  stroke-width: 2;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* ===================== ANIMACIONES  */
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(15px) scale(0.97);
+    transform: translateY(14px);
   }
   to {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: translateY(0);
   }
 }
 
@@ -177,63 +198,40 @@ body::before {
 
 @keyframes pop {
   from {
-    transform: scale(0.6);
+    transform: scale(0.85);
   }
   to {
     transform: scale(1);
   }
 }
 
-/*MoVIL */
-@media (max-width: 480px) {
+/* ===================== TABLET */
+@media (min-width: 600px) {
   .success-card {
-    max-width: 290px;
-    padding: 20px 18px;
+    max-width: 340px;
+    padding: 24px 22px;
   }
 
-  .success-icon {
-    width: 54px;
-    height: 54px;
+  .success-card h1 {
+    font-size: 21px;
+  }
+}
+
+/* ===================== DESKTOP  */
+@media (min-width: 1024px) {
+  .success-card {
+    max-width: 360px;
+  }
+}
+
+/* ===================== MÓVIL PEQUEÑO */
+@media (max-width: 360px) {
+  .success-card {
+    max-width: 280px;
+    padding: 20px 16px;
   }
 
   .success-card h1 {
     font-size: 18px;
   }
 }
-
-/*TABLET*/
-@media (min-width: 481px) and (max-width: 768px) {
-  .success-card {
-    max-width: 310px;
-  }
-}
-
-/*ICONO*/
-.success-icon {
-  color: #28a745;
-}
-
-.success-icon svg path {
-  stroke-dasharray: 30;
-  stroke-dashoffset: 30;
-  animation: drawCheck 0.6s ease forwards 0.4s;
-}
-
-.icon {
-  width: 18px;
-  height: 18px;
-  margin-right: 8px;
-  stroke: currentColor;
-  stroke-width: 2;
-  fill: none;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  vertical-align: middle;
-}
-
-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
